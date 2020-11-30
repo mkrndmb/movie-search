@@ -7,7 +7,7 @@ const Content = () => {
     const [page, setPage] = useState(1)
     const [x,setX] =useState(1)
 
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=${input}&page=${page+1}&include_adult=true`
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=${input}&page=${page+1}&include_adult=false`
     
     
     const search = async (e) => {
@@ -15,7 +15,7 @@ const Content = () => {
           
             e.preventDefault()
             try {
-                const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=${input}&page=1&include_adult=true`)
+                const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=${input}&page=1&include_adult=false`)
                 const data = await res.json()
                 // console.log(data.results);
                 if(data.total_results===0 && page ===1){
